@@ -1,13 +1,13 @@
-let word; // the word to be guessed
-let wordLength; // length of the word
-let wordLetters; // individual letters of the word
-let guess; // the current guess of the player
-let guessLetters; // individual letters of the guess
-let incorrectLetters; // incorrect letters that the player has guessed
-let lives; // number of lives the player has remaining
-let gameOver; // whether the game is over
-let win; // whether the player won
-let inputWord;
+let word; //The word to be guessed
+let wordLength; //Length of the word
+let wordLetters; //Individual letters of the word
+let guess; //The current guess of the player
+let guessLetters; //Individual letters of the guess
+let incorrectLetters; //Incorrect letters that the player has guessed
+let lives; //Number of lives the player has remaining
+let gameOver; //Whether the game is over
+let win; //Whether the player won
+let inputWord; //Input from the player
 
 function keyPressed() {
   if (gameOver) {
@@ -27,8 +27,8 @@ function keyPressed() {
 }
 
 function setup() {
-  createCanvas(400, 400);
-  inputWord = prompt("Enter the word to be guessed in lowercase:");
+  createCanvas(windowWidth, windowHeight);
+  inputWord = prompt("Enter the word to be guessed:").toLowerCase();
   word = inputWord;
   wordLength = inputWord.length;
   wordLetters = inputWord.split("");
@@ -41,7 +41,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(220);
   drawHangman();
   drawWord();
   drawGuess();
@@ -53,27 +53,27 @@ function draw() {
 
 function drawHangman() {
   strokeWeight(4);
-  // draw the stand
-  line(150, 350, 350, 350);  // modified
-  line(250, 350, 250, 50);  // modified
-  line(150, 50, 350, 50);  // modified
-  // draw the head
+  //Draw the stand
+  line(150, 350, 350, 350);
+  line(250, 350, 250, 50);
+  line(150, 50, 350, 50);
+  //Draw the head
   if (lives < 6) {
-    ellipse(250, 100, 50);  // modified
+    ellipse(250, 100, 50);
   }
-  // draw the body
+  //Draw the body
   if (lives < 5) {
-    line(250, 150, 250, 250);  // modified
+    line(250, 150, 250, 250);
   }
-  // draw the arms
+  //Draw the arms
   if (lives < 4) {
-    line(200, 200, 250, 150);  // modified
-    line(300, 200, 250, 150);  // modified
+    line(200, 200, 250, 150);
+    line(300, 200, 250, 150);
   }
-  // draw the legs
+  //Draw the legs
   if (lives < 3) {
-    line(200, 300, 250, 250);  // modified
-    line(300, 300, 250, 250);  // modified
+    line(200, 300, 250, 250);
+    line(300, 300, 250, 250);
   }
 }
 
